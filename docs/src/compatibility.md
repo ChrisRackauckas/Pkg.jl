@@ -31,6 +31,17 @@ Example = "1.2, 2"
 ```
 will result in `[1.2.0, 3.0.0)`.
 
+It is important to note that in semantic versioning that a minor release pre-1.0 is also a major release. Therefore, 
+moving from `0.2.0` to `0.3.0` is considered breaking. Due to this, setting a lower bound on a pre-1.0 release will
+add a non-inclusive upper bound on that minor release, meaning
+
+```toml
+[compat]
+Example = "0.2"
+```
+
+will result in `[0.2.0,0.3.0)`.
+
 ### Caret specifiers
 
 A caret specifier allows upgrade that would be compatible according to semver.
